@@ -1,0 +1,24 @@
+{
+    "manifest_version": 2,
+    "name": "Media Downloader",
+    "version": "1.0",
+    "description": "A simple Chrome extension to download media files",
+    "icons": {
+      "48": "icon48.png",
+      "128": "icon128.png"
+    },
+    "browser_action": {
+      "default_icon": "icon48.png",
+      "default_popup": "popup.html"
+    },
+    "permissions": ["activeTab", "storage"],
+    "content_scripts": [
+      {
+        "matches": ["http://*/*", "https://*/*"],
+        "js": ["content_script.js"],
+        "all_frames": true
+      }
+    ],
+    "content_security_policy": "script-src 'self' https://cdnjs.cloudflare.com; object-src 'self'; style-src 'self' https://cdnjs.cloudflare.com"
+  }
+  
